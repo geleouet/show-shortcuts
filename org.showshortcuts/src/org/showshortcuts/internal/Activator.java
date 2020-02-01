@@ -171,6 +171,10 @@ public class Activator extends AbstractUIPlugin //
 		if (KeyStroke.NO_KEY != keyStroke.getNaturalKey()) {
 			if (store.getBoolean(PREF_KEY_SHORTCUTS_ENABLED)) {
 				String formattedStroke = SWTKeySupport.getKeyFormatterForPlatform().format(keyStroke);
+				formattedStroke = formattedStroke
+						.replace('&', '1')
+						.replace('é', '2')
+						.replace('"', '3');
 				if (debug && debugTrace != null) {
 					debugTrace.trace(DEBUG_PATH, "Formatted stroke is: " + formattedStroke); //$NON-NLS-1$
 				}
